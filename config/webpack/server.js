@@ -19,6 +19,8 @@ const getResolve = require('./blocks/getResolve')
 const getTarget = require('./blocks/getTarget')
 const setPlatform = require('./blocks/setPlatform')
 
+const FobWatchModePlugin = require('./FobWatchModePlugin')
+
 
 const config = createConfig.vanilla([
   setPlatform('server'),
@@ -45,8 +47,9 @@ const config = createConfig.vanilla([
     sourceMaps(),
     addPlugins([
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin(),
+      // new webpack.NoEmitOnErrorsPlugin(),
       new webpack.NamedModulesPlugin(),
+      new FobWatchModePlugin(),
     ]),
   ]),
 
